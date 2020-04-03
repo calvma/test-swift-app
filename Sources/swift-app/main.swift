@@ -1,5 +1,6 @@
 import PerfectMySQL
 
+// manually created testDB in mysql cmd prompt
 let testHost = "127.0.0.1"
 let testUser = "root"
 let testDB = "nadja"
