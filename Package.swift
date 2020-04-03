@@ -11,7 +11,7 @@ let package = Package(
         .package(
             name: "PerfectMySQL",
             url:"https://github.com/PerfectlySoft/Perfect-MySQL.git",
-            from: "3.0.0"
+            from: "3.5.1"
         )
     ],
     targets: [
