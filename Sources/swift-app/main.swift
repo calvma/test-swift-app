@@ -37,6 +37,7 @@ func fetchData() {
     defer {
         mysql.close()
     }
+
     let sql = """
     SELECT * FROM interactions;
     """
@@ -45,8 +46,26 @@ func fetchData() {
         return
     }
     let results = mysql.storeResults()!
-
     print(results.numRows())
+    
+    let insert_sql = """
+    INSERT INTO interactions (name) VALUES ("transaction_from_swift")
+    """
+    guard mysql.query(statement: insert_sql) else {
+        print(mysql.errorMessage())
+        return
+    }
+    
+    let select_sql = """
+    SELECT * FROM interactions;
+    """
+    guard mysql.query(statement: select_sql) else {
+        print(mysql.errorMessage())
+        return
+    }
+    let select_results = mysql.storeResults()!
+    print(select_results.numRows())
+
 //    var ary = [[String:Any]]()
 //    results.forEachRow { row in
 //       let optionName = getRowString(forRow: row[0]) //Store our Option Name, which would be the first item in the row, and therefore row[0].
