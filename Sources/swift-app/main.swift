@@ -68,10 +68,12 @@ func fetchData() {
 
     var ary = [[String:Any]]()
     select_results.forEachRow { row in
+    
+        // reddit.com/r/swift/comments/4rpxh4/print_optional_string_interpolation_without/
         ary.append(["name": row[0] ?? "nil"])
-   }
+   
+    }
     print("Final Array \(ary)")
-
 }
 
 fetchData()
